@@ -28,7 +28,7 @@ for x in line :
         stack.append(x)
     else :
         stack.pop()
-        if stack[-1] == '(' :
+        if line[i - 1] == '(' :
             piecesCnt += len(stack)
         else :
             piecesCnt += 1
