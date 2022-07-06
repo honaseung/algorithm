@@ -1,9 +1,10 @@
 import sys
-#sys.stdin = open('in1.txt')
+sys.stdin = open('input.txt')
 
 postFix = input()
 stack = []
-currentValue = float('-inf')
+#Change confused variable name.
+lastValue = 0
 
 def calculate(operation, *operand) :
     #Operand's type is tuple. Should mention it on discussion.
@@ -24,12 +25,13 @@ for x in postFix :
     if x.isnumeric() :
         stack.append(int(x))
     else :
-        currentValue = stack.pop()
+        lastValue = stack.pop()
         #I tried to use eval python's function. But i failed. Mention it on issue.
-        currentValue = calculate(x, stack.pop(), currentValue)
-        stack.append(currentValue)
+        #It's important to pass parameters in the right order.
+        lastValue = calculate(x, stack.pop(), lastValue)
+        stack.append(lastValue)
 
-print(currentValue)
+print(lastValue)
         
             
 
