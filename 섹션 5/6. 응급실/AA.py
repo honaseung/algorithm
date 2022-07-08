@@ -12,9 +12,11 @@ cnt = 0
 emgInfo = list(map(int, input().split()))
 
 for i in range(len(emgInfo)) :
+    #Make an issue if there is how to make tuple easlier in lecture.
     emgInfo[i] = (emgInfo[i], i)
 
 while True :
+    #Always choose an action by first patient in a line. Should go in Section5 questions discussion.
     emg  = emgInfo[0]
     if emg[0] >= max(emgInfo)[0] :
         emgInfo.pop(0)
@@ -23,6 +25,7 @@ while True :
             print(cnt)
             break
     else :
+        #Pop & append at same time makes broken index while for statement
         emgInfo.append(emgInfo.pop(0))
 
     
