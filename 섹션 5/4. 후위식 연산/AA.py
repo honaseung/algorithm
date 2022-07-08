@@ -7,7 +7,8 @@ stack = []
 lastValue = 0
 
 def calculate(operation, *operand) :
-    #Operand's type is tuple. Should mention it on discussion.
+    #Operand's type is tuple. Should mention it on issue.
+    #Mention how to make switch statement 
     match operation :
         case '*' :
             return operand[0] * operand[1]
