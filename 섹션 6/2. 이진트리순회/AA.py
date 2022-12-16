@@ -1,73 +1,38 @@
-'''
-this file is not finished. I made this long time ago.
-so i can't remeber what i was thinking.
-'''
+tree = [1, 2, 3, 4, 5, 6, 7]
 
-var = {
-    1: {
-        2: {
-            4: {
-
-            },
-            5: {
-
-            }
-        },
-        3: {
-            6: {
-
-            },
-            7: {
-
-            }
-        }
-    }
-}
-
-def frontRounds(x: dict) :
-    key = list(x.keys())
-    try :
-        print(key[0], end = ' ')
-        frontRounds(x[key[0]])
-        print(key[1], end = ' ')
-        frontRounds(x[key[1]])
-    except :
+def preorder(idx: int) :
+    if (len(tree) - 1 < idx) :
+    #below if statement means check is there any child before print.
+    #so if there is no child, should print itself before return.
+    #it's a good way. Because you call function less than above.
+    # if (len(tree) - 1 <= 2 * idx) :
+    #     print(tree[idx])
         return
+    print(tree[idx], end=' ')
+    preorder(2 * idx + 1)
+    preorder(2 * idx + 2)
 
-def midRounds(x: dict, self) :
-    key = list(x.keys())
-    try :
-        midRounds(x[key[0]], key[0])
-        print(key[0], end = ' ')
-        midRounds(x[key[1]], key[1])
-        print(key[1], end = ' ')
-    except :
+def inorder(idx: int) :
+    if (len(tree) - 1 <= 2 * idx) :
+        print(tree[idx], end=' ')
         return
+    inorder(2 * idx + 1)
+    print(tree[idx], end=' ')
+    inorder(2 * idx + 2)
 
-def rearRounds(x: dict) :
-    key = list(x.keys())
-    try :
-        rearRounds(x[key[0]])
-        print(key[0], end = ' ')
-        rearRounds(x[key[1]])
-        print(key[1], end = ' ')
-    except :
+def postorder(idx: int) :
+    if (len(tree) - 1 <= 2 * idx) :
+        print(tree[idx], end=' ')
         return
+    postorder(2 * idx + 1)
+    postorder(2 * idx + 2)
+    print(tree[idx], end=' ')
 
-frontRounds(var)
-print()
-midRounds(var, list(var.keys())[0])
-print()
-rearRounds(var)
+preorder(0)
+print(f'preorder')
 
-print()
+inorder(0)
+print(f'inorder')
 
-dic1 = {'test': 0}
-dic2 = {'test0': 0}
-
-dic1.update({'test': 1})
-dic1.update(test1 = 1, test2 = 2, test3 = 3)
-dic1.update(dic2)
-
-print(dic1)
-
+postorder(0)
+print(f'postorder')
