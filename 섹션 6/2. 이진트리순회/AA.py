@@ -1,3 +1,8 @@
+'''
+this file is not finished. I made this long time ago.
+so i can't remeber what i was thinking.
+'''
+
 var = {
     1: {
         2: {
@@ -35,7 +40,6 @@ def midRounds(x: dict, self) :
         midRounds(x[key[0]], key[0])
         print(key[0], end = ' ')
         midRounds(x[key[1]], key[1])
-        #print(self, end = ' ')
         print(key[1], end = ' ')
     except :
         return
