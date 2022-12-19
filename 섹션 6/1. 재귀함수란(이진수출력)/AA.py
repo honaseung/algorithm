@@ -1,6 +1,7 @@
 import sys
 from collections import deque
-#sys.stdin = open('in1.txt')
+#make sure the path. The path isn't start from this file's location. It's start from where you are.
+sys.stdin = open('1. 재귀함수란(이진수출력)/in1.txt')
 
 N = int(input())
 res = deque()
@@ -23,7 +24,7 @@ def decimalToBinary(x: int) :
     #res.append(x % 2)
     if x != 1 :
         decimalToBinary(x // 2)
-    print(x % 2)
+    print(x % 2, end='')
     #res.append(x % 2)
 
     #if x == 0 :
